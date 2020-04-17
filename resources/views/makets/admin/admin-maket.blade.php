@@ -1,103 +1,89 @@
-
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
+<!-- BEGIN HEAD -->
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                <!-- CSRF Token -->
-            <meta name="csrf-token" content="qUWKZKhuW7RANGR0xHkIv5yCJzammcxTXFW7AiqP">
-            <title>Gull - Laravel 6 + Bootstrap 4 admin template</title>
-            <link href="https://.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="Responsive Admin Template" />
+    <meta name="author" content="SmartUniversity" />
+    <title>Smart University | Bootstrap Responsive Admin Template</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <!-- icons -->
+    <link href="{{ asset('admin/fonts/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/fonts/material-design-icons/material-icon.css') }}" rel="stylesheet" type="text/css" />
+    <!--bootstrap -->
+    <link href="{{ asset('admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/plugins/summernote/summernote.css') }}" rel="stylesheet">
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/material/material.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/css/material_style.css') }}">
+    <!-- inbox style -->
+    <link href="{{ asset('admin/css/pages/inbox.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="{{ asset('admin/css/theme/light/theme_style.css') }}" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="{{ asset('admin/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/theme/light/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/theme/light/theme-color.css') }}" rel="stylesheet" type="text/css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ asset('admin/img/favicon.ico') }}" />
+</head>
+<!-- END HEAD -->
 
-            <link id="gull-theme" rel="stylesheet" href="{{ asset('admin/assets/styles/css/themes/lite-purple.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('admin/assets/styles/vendor/perfect-scrollbar.css') }}">
-            {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
-            <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+<body
+    class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+    <div class="page-wrapper">
+        @yield('top-header')
+        <!-- start page container -->
+        <div class="page-container">
+            
+            @yield('sidebar-menyu')
+            
 
-
-        </head>
-        <body class="text-left">
-
-                <!-- Pre Loader Strat  -->
-                    <div class='loadscreen' id="preloader">
-
-                        <div class="loader spinner-bubble spinner-bubble-primary">
-
-
-                        </div>
-                    </div>
-                <!-- Pre Loader end  -->
-
-
-
-
-                <!-- ============ Compact Layout start ============= -->
-                <!-- ============Deafult  Large SIdebar Layout start ============= -->
-
-
-                            @yield('header-top-menyu')
-
-                <!-- ============Deafult  Large SIdebar Layout End ============= -->
-
-
-                <!--=============== Left side Start ================-->
-
-                            @yield('left-navigation')
-                <!--=============== Left side End ================-->
-
-
-                <!-- ============ Body content start ============= -->
-
-                            @yield('content')
-
-                    <!-- Footer Start -->
-                            @yield('footer')
-                    <!-- fotter end -->
-
-
-
-                <!-- ============ Body content End ============= -->
+            @yield('content')
+        
+        @yield('chart-sidebar')
+        </div>
+        <!-- end page container -->
+        <!-- start footer -->
+        <div class="page-footer">
+            <div class="page-footer-inner"> 2020 &copy; Tasviriy
+                <a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">Redstar Theme</a>
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
             </div>
         </div>
-                <!--=============== End app-admin-wrap ================-->
-
-
-                <!-- ============ Search UI Start ============= -->
-                            @yield('ui-search')
-                <!-- ============ Search UI End ============= -->
-
-
-                <!-- ============ Customizer ============= -->
-                            @yield('customizer')
-                <!-- ============ End Customizer ============= -->
-
-                <!-- ============ Large Sidebar Layout End ============= -->
-
-
-
-            <script src="{{ asset('admin/assets/js/common-bundle-script.js') }}"></script>
-            <script src="{{ asset('admin/assets/js/vendor/echarts.min.js') }}"></script>
-            <script src="{{ asset('admin/assets/js/es5/echart.options.min.js') }}"></script>
-            <script src="{{ asset('admin/assets/js/es5/dashboard.v1.script.js') }}"></script>
-            <script src="{{ asset('admin/assets/js/script.js') }}"></script>
-            <script src="{{ asset('admin/assets/js/sidebar.large.script.js') }}"></script>
-            <script src="{{ asset('admin/assets/js/customizer.script.js') }}"></script>
-
-            {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
-
-            <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
-
-
-        </body>
+        <!-- end footer -->
+    </div>
+    <!-- start js include path -->
+    <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/popper/popper.js') }}"></script>
+    <script src="{{ asset('admin/plugins/jquery-blockui/jquery.blockui.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+    <script src="{{ asset('admin/plugins/sparkline/jquery.sparkline.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/sparkline/sparkline-data.js') }}"></script>
+    <!-- Common js-->
+    <script src="{{ asset('admin/js/app.js') }}"></script>
+    <script src="{{ asset('admin/js/layout.js') }}"></script>
+    <script src="{{ asset('admin/js/theme-color.js') }}"></script>
+    <!-- material -->
+    <script src="{{ asset('admin/plugins/material/material.min.js') }}"></script>
+    <!-- chart js -->
+    <script src="{{ asset('admin/plugins/chart-js/Chart.bundle.js') }}"></script>
+    <script src="{{ asset('admin/plugins/chart-js/utils.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/chart/chartjs/home-data.js') }}"></script>
+    <!-- summernote -->
+    <script src="{{ asset('admin/plugins/summernote/summernote.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/summernote/summernote-data.js') }}"></script>
+    <!-- end js include path -->
+</body>
 
 </html>

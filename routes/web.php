@@ -19,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'IndexController@index')->name('site.index');
+
+
+Route::prefix('full-panel')->middleware(['role:developer'])->group(function () {
+   Route::get('/', 'admin\AdminController@index')->name('admin.index');
+
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

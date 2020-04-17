@@ -1,359 +1,732 @@
-@extends('artuz.layouts.makets.admin.admin-maket')
-    @section('content')
-
-
-<div class="main-content-wrap sidenav-open d-flex flex-column">
-    <div class="main-content">
-                   <div class="breadcrumb">
-    <h1>Version 1</h1>
-    <ul>
-        <li><a href="index.html">Dashboard</a></li>
-        <li>Version 1</li>
-    </ul>
-</div>
-
-<div class="separator-breadcrumb border-top"></div>
-
-<div class="row">
-    <!-- ICON BG -->
-    <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center">
-                <i class="i-Add-User"></i>
-                <div class="content">
-                    <p class="text-muted mt-2 mb-0">{{ __("Foydalanuvchilar") }}</p>
-                <p class="text-primary text-24 line-height-1 mb-2">2 ta</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center">
-                <i class="i-Financial"></i>
-                <div class="content">
-                    <p class="text-muted mt-2 mb-0">Sales</p>
-                    <p class="text-primary text-24 line-height-1 mb-2">$4021</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center">
-                <i class="i-Checkout-Basket"></i>
-                <div class="content">
-                    <p class="text-muted mt-2 mb-0">Orders</p>
-                    <p class="text-primary text-24 line-height-1 mb-2">80</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-            <div class="card-body text-center">
-                <i class="i-Money-2"></i>
-                <div class="content">
-                    <p class="text-muted mt-2 mb-0">Expense</p>
-                    <p class="text-primary text-24 line-height-1 mb-2">$1200</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="row">
-    <div class="col-lg-8 col-md-12">
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="card-title">This Year Sales</div>
-                <div id="echartBar" style="height: 300px;"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-sm-12">
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="card-title">Sales by Countries</div>
-                <div id="echartPie" style="height: 300px;"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-6 col-md-12">
-
-        <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="card card-chart-bottom o-hidden mb-4">
-                    <div class="card-body">
-                        <div class="text-muted">Last Month Sales</div>
-                        <p class="mb-4 text-primary text-24">$40250</p>
-                    </div>
-                    <div id="echart1" style="height: 260px;"></div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12">
-                <div class="card card-chart-bottom o-hidden mb-4">
-                    <div class="card-body">
-                        <div class="text-muted">Last Week Sales</div>
-                        <p class="mb-4 text-warning text-24">$10250</p>
-                    </div>
-                    <div id="echart2" style="height: 260px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card o-hidden mb-4">
-                    <div class="card-header d-flex align-items-center border-0">
-                        <h3 class="w-50 float-left card-title m-0">New Users</h3>
-                        <div class="dropdown dropleft text-right w-50 float-right">
-                            <button class="btn bg-gray-100" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="nav-icon i-Gear-2"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item" href="index.html#">Add new user</a>
-                                <a class="dropdown-item" href="index.html#">View All users</a>
-                                <a class="dropdown-item" href="index.html#">Something else here</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="">
-                        <div class="table-responsive">
-                            <table id="user_table" class="table  text-center">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Avatar</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Smith Doe</td>
-                                        <td>
-
-                                            <img class="rounded-circle m-0 avatar-sm-table " src="{{ asset('admin/assets/images/faces/1.jpg') }}" alt="">
-
-                                        </td>
-
-                                        <td>Smith@gmail.com</td>
-                                        <td><span class="badge badge-success">Active</span></td>
-                                        <td>
-                                            <a href="index.html#" class="text-success mr-2">
-                                                <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                            </a>
-                                            <a href="index.html#" class="text-danger mr-2">
-                                                <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jhon Doe</td>
-                                        <td>
-
-                                            <img class="rounded-circle m-0 avatar-sm-table " src="{{ asset('admin/assets/images/faces/1.jpg') }}" alt="">
-
-                                        </td>
-
-                                        <td>Jhon@gmail.com</td>
-                                        <td><span class="badge badge-info">Pending</span></td>
-                                        <td>
-                                            <a href="index.html#" class="text-success mr-2">
-                                                <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                            </a>
-                                            <a href="index.html#" class="text-danger mr-2">
-                                                <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Alex</td>
-                                        <td>
-
-                                            <img class="rounded-circle m-0 avatar-sm-table " src="{{ asset('admin/assets/images/faces/1.jpg') }}" alt="">
-
-                                        </td>
-
-                                        <td>Otto@gmail.com</td>
-                                        <td><span class="badge badge-warning">Not Active</span></td>
-                                        <td>
-                                            <a href="index.html#" class="text-success mr-2">
-                                                <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                            </a>
-                                            <a href="index.html#" class="text-danger mr-2">
-                                                <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Mathew Doe</td>
-                                        <td>
-
-                                            <img class="rounded-circle m-0 avatar-sm-table " src="{{ asset('admin/assets/images/faces/1.jpg') }}" alt="">
-
-                                        </td>
-
-                                        <td>Mathew@gmail.com</td>
-                                        <td><span class="badge badge-success">Active</span></td>
-                                        <td>
-                                            <a href="index.html#" class="text-success mr-2">
-                                                <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                            </a>
-                                            <a href="index.html#" class="text-danger mr-2">
-                                                <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="col-lg-6 col-md-12">
-
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="card-title">Top Selling Products</div>
-                <div class="d-flex flex-column flex-sm-row align-items-center mb-3">
-                    <img class="avatar-lg mb-3 mb-sm-0 rounded mr-sm-3" src="{{ asset('admin/assets/images/products/headphone-4.jpg') }}" alt="">
-                    <div class="flex-grow-1">
-                        <h5 class=""><a href="index.html">Wireless Headphone E23</a></h5>
-                        <p class="m-0 text-small text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <p class="text-small text-danger m-0">$450 <del class="text-muted">$500</del></p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-primary btn-rounded btn-sm">View details</button>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row align-items-center mb-3">
-                    <img class="avatar-lg mb-3 mb-sm-0 rounded mr-sm-3" src="{{ asset('admin/assets/images/products/headphone-2.jpg') }}" alt="">
-                    <div class="flex-grow-1">
-                        <h5 class=""><a href="index.html">Wireless Headphone Y902</a></h5>
-                        <p class="m-0 text-small text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <p class="text-small text-danger m-0">$550 <del class="text-muted">$600</del></p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-primary btn-sm btn-rounded m-3 m-sm-0">View details</button>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row align-items-center mb-3">
-                    <img class="avatar-lg mb-3 mb-sm-0 rounded mr-sm-3" src="{{ asset('admin/assets/images/products/headphone-3.jpg') }}" alt="">
-                    <div class="flex-grow-1">
-                        <h5 class=""><a href="index.html">Wireless Headphone E09</a></h5>
-                        <p class="m-0 text-small text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <p class="text-small text-danger m-0">$250 <del class="text-muted">$300</del></p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-primary btn-sm btn-rounded m-3 m-sm-0">View details</button>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row align-items-center mb-3">
-                    <img class="avatar-lg mb-3 mb-sm-0 rounded mr-sm-3" src="{{ asset('admin/assets/images/products/headphone-4.jpg') }}" alt="">
-                    <div class="flex-grow-1">
-                        <h5 class=""><a href="index.html">Wireless Headphone X89</a></h5>
-                        <p class="m-0 text-small text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <p class="text-small text-danger m-0">$450 <del class="text-muted">$500</del></p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-primary btn-sm btn-rounded m-3 m-sm-0">View details</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-body p-0">
-                <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
-                    <span>User activity</span>
-                    <span class="flex-grow-1"></span>
-                    <span class="badge badge-pill badge-warning">Updated daily</span>
-                </div>
-                <div class="d-flex border-bottom justify-content-between p-3">
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">Pages / Visit</span>
-                        <h5 class="m-0">2065</h5>
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">New user</span>
-                        <h5 class="m-0">465</h5>
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">Last week</span>
-                        <h5 class="m-0">23456</h5>
-                    </div>
-                </div>
-                <div class="d-flex border-bottom justify-content-between p-3">
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">Pages / Visit</span>
-                        <h5 class="m-0">1829</h5>
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">New user</span>
-                        <h5 class="m-0">735</h5>
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">Last week</span>
-                        <h5 class="m-0">92565</h5>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between p-3">
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">Pages / Visit</span>
-                        <h5 class="m-0">3165</h5>
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">New user</span>
-                        <h5 class="m-0">165</h5>
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">Last week</span>
-                        <h5 class="m-0">32165</h5>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col-md-12">
-        <div class="card mb-4">
-            <div class="card-body p-0">
-                <h5 class="card-title m-0 p-3">Last 20 Day Leads</h5>
-                <div id="echart3" style="height: 360px;"></div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-    </div>
-
+@extends('makets.admin.admin-maket')
+@section('content')
+<!-- start page content -->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+					<div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">Dashboard</div>
+							</div>
+							<ol class="breadcrumb page-breadcrumb pull-right">
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+										href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								</li>
+								<li class="active">Dashboard</li>
+							</ol>
+						</div>
+					</div>
+					<!-- start widget -->
+					<div class="state-overview">
+						<div class="row">
+							<div class="col-xl-3 col-md-6 col-12">
+								<div class="info-box bg-b-green">
+									<span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
+									<div class="info-box-content">
+										<span class="info-box-text">Total Students</span>
+										<span class="info-box-number">450</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 45%"></div>
+										</div>
+										<span class="progress-description">
+											45% Increase in 28 Days
+										</span>
+									</div>
+									<!-- /.info-box-content -->
+								</div>
+								<!-- /.info-box -->
+							</div>
+							<!-- /.col -->
+							<div class="col-xl-3 col-md-6 col-12">
+								<div class="info-box bg-b-yellow">
+									<span class="info-box-icon push-bottom"><i class="material-icons">person</i></span>
+									<div class="info-box-content">
+										<span class="info-box-text">New Students</span>
+										<span class="info-box-number">155</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 40%"></div>
+										</div>
+										<span class="progress-description">
+											40% Increase in 28 Days
+										</span>
+									</div>
+									<!-- /.info-box-content -->
+								</div>
+								<!-- /.info-box -->
+							</div>
+							<!-- /.col -->
+							<div class="col-xl-3 col-md-6 col-12">
+								<div class="info-box bg-b-blue">
+									<span class="info-box-icon push-bottom"><i class="material-icons">school</i></span>
+									<div class="info-box-content">
+										<span class="info-box-text">Total Course</span>
+										<span class="info-box-number">52</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 85%"></div>
+										</div>
+										<span class="progress-description">
+											85% Increase in 28 Days
+										</span>
+									</div>
+									<!-- /.info-box-content -->
+								</div>
+								<!-- /.info-box -->
+							</div>
+							<!-- /.col -->
+							<div class="col-xl-3 col-md-6 col-12">
+								<div class="info-box bg-b-pink">
+									<span class="info-box-icon push-bottom"><i
+											class="material-icons">monetization_on</i></span>
+									<div class="info-box-content">
+										<span class="info-box-text">Fees Collection</span>
+										<span class="info-box-number">13,921</span><span>$</span>
+										<div class="progress">
+											<div class="progress-bar" style="width: 50%"></div>
+										</div>
+										<span class="progress-description">
+											50% Increase in 28 Days
+										</span>
+									</div>
+									<!-- /.info-box-content -->
+								</div>
+								<!-- /.info-box -->
+							</div>
+							<!-- /.col -->
+						</div>
+					</div>
+					<!-- end widget -->
+					<!-- chart start -->
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="card card-box">
+								<div class="card-head">
+									<header>University Survey</header>
+									<div class="tools">
+										<a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+										<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+										<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+									</div>
+								</div>
+								<div class="card-body no-padding height-9">
+									<div class="row">
+										<canvas id="canvas1"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="card card-box">
+								<div class="card-head">
+									<header>University Survey</header>
+									<div class="tools">
+										<a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+										<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+										<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+									</div>
+								</div>
+								<div class="card-body no-padding height-9">
+									<div class="row">
+										<canvas id="chartjs_pie"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Chart end -->
+					<!-- start course list -->
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-12 col-sm-6">
+							<div class="blogThumb">
+								<div class="thumb-center"><img class="img-responsive" alt="user"
+										src="{{ asset('admin/img/course/course1.jpg') }}"></div>
+								<div class="course-box">
+									<h4>PHP Development Course</h4>
+									<div class="text-muted"><span class="m-r-10">April 23</span>
+										<a class="course-likes m-l-10" href="index.html#"><i class="fa fa-heart-o"></i> 654</a>
+									</div>
+									<p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
+									<p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
+									<p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
+									<button type="button"
+										class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
+										More</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12 col-sm-6 ">
+							<div class="blogThumb">
+								<div class="thumb-center"><img class="img-responsive" alt="user"
+										src="{{ asset('admin/img/course/course2.jpg') }}"></div>
+								<div class="course-box">
+									<h4>PHP Development Course</h4>
+									<div class="text-muted"><span class="m-r-10">April 23</span>
+										<a class="course-likes m-l-10" href="index.html#"><i class="fa fa-heart-o"></i> 654</a>
+									</div>
+									<p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
+									<p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
+									<p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
+									<button type="button"
+										class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
+										More</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12 col-sm-6">
+							<div class="blogThumb">
+								<div class="thumb-center"><img class="img-responsive" alt="user"
+										src="{{ asset('admin/img/course/course3.jpg') }}"></div>
+								<div class="course-box">
+									<h4>PHP Development Course</h4>
+									<div class="text-muted"><span class="m-r-10">April 23</span>
+										<a class="course-likes m-l-10" href="index.html#"><i class="fa fa-heart-o"></i> 654</a>
+									</div>
+									<p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
+									<p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
+									<p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
+									<button type="button"
+										class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
+										More</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12 col-sm-6">
+							<div class="blogThumb">
+								<div class="thumb-center"><img class="img-responsive" alt="user"
+										src="{{ asset('admin/img/course/course4.jpg') }}"></div>
+								<div class="course-box">
+									<h4>PHP Development Course</h4>
+									<div class="text-muted"><span class="m-r-10">April 23</span>
+										<a class="course-likes m-l-10" href="index.html#"><i class="fa fa-heart-o"></i> 654</a>
+									</div>
+									<p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
+									<p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
+									<p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
+									<button type="button"
+										class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">Read
+										More</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End course list -->
+					<div class="row">
+						<!-- Quick Mail start -->
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>Quick Mail</header>
+									<button id="demo_menu-lower-right"
+										class="mdl-button mdl-js-button mdl-button--icon pull-right"
+										data-upgraded=",MaterialButton">
+										<i class="material-icons">more_vert</i>
+									</button>
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+										data-mdl-for="demo_menu-lower-right">
+										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
+											here</li>
+									</ul>
+								</div>
+								<div class="card-body ">
+									<div class="mail-list">
+										<div class="compose-mail">
+											<form method="post">
+												<div class="form-group">
+													<label for="to" class="">To:</label>
+													<input type="text" tabindex="1" id="to" class="form-control">
+													<div class="compose-options">
+														<a onclick="$(this).hide(); $('#cc').parent().removeClass('hidden'); $('#cc').focus();"
+															href="javascript:;">Cc</a>
+														<a onclick="$(this).hide(); $('#bcc').parent().removeClass('hidden'); $('#bcc').focus();"
+															href="javascript:;">Bcc</a>
+													</div>
+												</div>
+												<div class="form-group hidden">
+													<label for="cc" class="">Cc:</label>
+													<input type="text" tabindex="2" id="cc" class="form-control">
+												</div>
+												<div class="form-group hidden">
+													<label for="bcc" class="">Bcc:</label>
+													<input type="text" tabindex="2" id="bcc" class="form-control">
+												</div>
+												<div class="form-group">
+													<label for="subject" class="">Subject:</label>
+													<input type="text" tabindex="1" id="subject" class="form-control">
+												</div>
+												<div>
+													<div id="summernote"></div>
+													<input type="file" class="default" multiple>
+												</div>
+												<!--   <div class="btn-group margin-top-20 ">
+	                                                <button class="btn btn-primary btn-sm margin-right-10"><i class="fa fa-check"></i> Send</button>
+                                           		</div> -->
+												<div class="box-footer clearfix">
+													<button type="button"
+														class="mdl-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-primary pull-right">Send
+														<i class="fa fa-paper-plane-o"></i></button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Quick Mail end -->
+						<!-- Activity feed start -->
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>Activity Feed</header>
+									<button id="feedMenu" class="mdl-button mdl-js-button mdl-button--icon pull-right"
+										data-upgraded=",MaterialButton">
+										<i class="material-icons">more_vert</i>
+									</button>
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+										data-mdl-for="feedMenu">
+										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
+											here</li>
+									</ul>
+								</div>
+								<div class="card-body ">
+									<ul class="feedBody">
+										<li class="active-feed">
+											<div class="feed-user-img">
+												<img src="{{ asset('admin/img/std/std1.jpg') }}" class="img-radius "
+													alt="User-Profile-Image">
+											</div>
+											<h6>
+												<span class="feedLblStyle lblFileStyle">File</span> Sarah Smith <small
+													class="text-muted">6 hours ago</small>
+											</h6>
+											<p class="m-b-15 m-t-15">
+												hii John, I have upload doc related to task.
+											</p>
+										</li>
+										<li class="diactive-feed">
+											<div class="feed-user-img">
+												<img src="{{ asset('admin/img/std/std2.jpg') }}" class="img-radius "
+													alt="User-Profile-Image">
+											</div>
+											<h6>
+												<span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi<small
+													class="text-muted">5 hours
+													ago</small>
+											</h6>
+											<p class="m-b-15 m-t-15">
+												Please do as specify. Let me know if you have any query.
+											</p>
+										</li>
+										<li class="diactive-feed">
+											<div class="feed-user-img">
+												<img src="{{ asset('admin/img/std/std3.jpg') }}" class="img-radius "
+													alt="User-Profile-Image">
+											</div>
+											<h6>
+												<span class="feedLblStyle lblCommentStyle">comment</span> Lina
+												Smith<small class="text-muted">6 hours ago</small>
+											</h6>
+											<p class="m-b-15 m-t-15">
+												Hey, How are you??
+											</p>
+										</li>
+										<li class="active-feed">
+											<div class="feed-user-img">
+												<img src="{{ asset('admin/img/std/std4.jpg') }}" class="img-radius "
+													alt="User-Profile-Image">
+											</div>
+											<h6>
+												<span class="feedLblStyle lblReplyStyle">Reply</span> Jacob Ryan
+												<small class="text-muted">7 hours ago</small>
+											</h6>
+											<p class="m-b-15 m-t-15">
+												I am fine. You??
+											</p>
+										</li>
+										<li class="active-feed">
+											<div class="feed-user-img">
+												<img src="{{ asset('admin/img/std/std5.jpg') }}" class="img-radius "
+													alt="User-Profile-Image">
+											</div>
+											<h6>
+												<span class="feedLblStyle lblFileStyle">File</span> Sarah Smith <small
+													class="text-muted">6 hours ago</small>
+											</h6>
+											<p class="m-b-15 m-t-15">
+												hii John, I have upload doc related to task.
+											</p>
+										</li>
+										<li class="diactive-feed">
+											<div class="feed-user-img">
+												<img src="{{ asset('admin/img/std/std6.jpg') }}" class="img-radius "
+													alt="User-Profile-Image">
+											</div>
+											<h6>
+												<span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi<small
+													class="text-muted">5 hours
+													ago</small>
+											</h6>
+											<p class="m-b-15 m-t-15">
+												Please do as specify. Let me know if you have any query.
+											</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- Activity feed end -->
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>Exam Toppers</header>
+									<button id="panel-button8"
+										class="mdl-button mdl-js-button mdl-button--icon pull-right"
+										data-upgraded=",MaterialButton">
+										<i class="material-icons">more_vert</i>
+									</button>
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+										data-mdl-for="panel-button8">
+										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
+											here</li>
+									</ul>
+								</div>
+								<div class="card-body ">
+									<div class="table-responsive">
+										<table class="table table-striped custom-table table-hover">
+											<thead>
+												<tr>
+													<th>Roll No</th>
+													<th>Name</th>
+													<th>Graph</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>23</td>
+													<td>John Smith</td>
+													<td>
+														<div id="sparkline"></div>
+													</td>
+													<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+															title="Edit">
+															<i class="fa fa-check"></i></a>
+														<a href="javascript:void(0)" class="text-inverse" title="Delete"
+															data-toggle="tooltip">
+															<i class="fa fa-trash"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>12</td>
+													<td>Sneha Pandit</td>
+													<td>
+														<div id="sparkline1"></div>
+													</td>
+													<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+															title="Edit">
+															<i class="fa fa-check"></i></a>
+														<a href="javascript:void(0)" class="text-inverse" title="Delete"
+															data-toggle="tooltip">
+															<i class="fa fa-trash"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>45</td>
+													<td>Sarah Smith</td>
+													<td>
+														<div id="sparkline2"></div>
+													</td>
+													<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+															title="Edit">
+															<i class="fa fa-check"></i></a>
+														<a href="javascript:void(0)" class="text-inverse" title="Delete"
+															data-toggle="tooltip">
+															<i class="fa fa-trash"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>34</td>
+													<td>John Deo</td>
+													<td>
+														<div id="sparkline3"></div>
+													</td>
+													<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+															title="Edit">
+															<i class="fa fa-check"></i></a>
+														<a href="javascript:void(0)" class="text-inverse" title="Delete"
+															data-toggle="tooltip">
+															<i class="fa fa-trash"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td>Jay Soni</td>
+													<td>
+														<div id="sparkline4"></div>
+													</td>
+													<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+															title="Edit">
+															<i class="fa fa-check"></i></a>
+														<a href="javascript:void(0)" class="text-inverse" title="Delete"
+															data-toggle="tooltip">
+															<i class="fa fa-trash"></i></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>Todo List</header>
+									<button id="panel-button"
+										class="mdl-button mdl-js-button mdl-button--icon pull-right"
+										data-upgraded=",MaterialButton">
+										<i class="material-icons">more_vert</i>
+									</button>
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+										data-mdl-for="panel-button">
+										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
+										</li>
+										<li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
+											here</li>
+									</ul>
+								</div>
+								<div class="card-body ">
+									<ul class="to-do-list ui-sortable" id="sortable-todo">
+										<li class="clearfix">
+											<div class="todo-check pull-left">
+												<input type="checkbox" value="None" id="todo-check1">
+												<label for="todo-check1"></label>
+											</div>
+											<p class="todo-title">Add fees details in system
+											</p>
+											<div class="todo-actionlist pull-right clearfix">
+												<a href="index.html#" class="todo-remove"><i class="fa fa-times"></i></a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="todo-check pull-left">
+												<input type="checkbox" value="None" id="todo-check2">
+												<label for="todo-check2"></label>
+											</div>
+											<p class="todo-title">Announcement for holiday
+											</p>
+											<div class="todo-actionlist pull-right clearfix">
+												<a href="index.html#" class="todo-remove"><i class="fa fa-times"></i></a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="todo-check pull-left">
+												<input type="checkbox" value="None" id="todo-check3">
+												<label for="todo-check3"></label>
+											</div>
+											<p class="todo-title">call bus driver</p>
+											<div class="todo-actionlist pull-right clearfix">
+												<a href="index.html#" class="todo-remove"><i class="fa fa-times"></i></a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="todo-check pull-left">
+												<input type="checkbox" value="None" id="todo-check4">
+												<label for="todo-check4"></label>
+											</div>
+											<p class="todo-title">School picnic</p>
+											<div class="todo-actionlist pull-right clearfix">
+												<a href="index.html#" class="todo-remove"><i class="fa fa-times"></i></a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="todo-check pull-left">
+												<input type="checkbox" value="None" id="todo-check5">
+												<label for="todo-check5"></label>
+											</div>
+											<p class="todo-title">Exam time table generate
+											</p>
+											<div class="todo-actionlist pull-right clearfix">
+												<a href="index.html#" class="todo-remove"><i class="fa fa-times"></i></a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- start new student list -->
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="card  card-box">
+								<div class="card-head">
+									<header>New Student List</header>
+									<div class="tools">
+										<a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+										<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+										<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+									</div>
+								</div>
+								<div class="card-body ">
+									<div class="table-wrap">
+										<div class="table-responsive">
+											<table class="table display product-overview mb-30" id="support_table">
+												<thead>
+													<tr>
+														<th>No</th>
+														<th>Name</th>
+														<th>Assigned Professor</th>
+														<th>Date Of Admit</th>
+														<th>Fees</th>
+														<th>Branch</th>
+														<th>Edit</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>Jens Brincker</td>
+														<td>Kenny Josh</td>
+														<td>27/05/2016</td>
+														<td>
+															<span class="label label-sm label-success">paid</span>
+														</td>
+														<td>Mechanical</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>Mark Hay</td>
+														<td> Mark</td>
+														<td>26/05/2017</td>
+														<td>
+															<span class="label label-sm label-warning">unpaid </span>
+														</td>
+														<td>Science</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td>Anthony Davie</td>
+														<td>Cinnabar</td>
+														<td>21/05/2016</td>
+														<td>
+															<span class="label label-sm label-success ">paid</span>
+														</td>
+														<td>Commerce</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td>David Perry</td>
+														<td>Felix </td>
+														<td>20/04/2016</td>
+														<td>
+															<span class="label label-sm label-danger">unpaid</span>
+														</td>
+														<td>Mechanical</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>5</td>
+														<td>Anthony Davie</td>
+														<td>Beryl</td>
+														<td>24/05/2016</td>
+														<td>
+															<span class="label label-sm label-success ">paid</span>
+														</td>
+														<td>M.B.A.</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>6</td>
+														<td>Alan Gilchrist</td>
+														<td>Joshep</td>
+														<td>22/05/2016</td>
+														<td>
+															<span class="label label-sm label-warning ">unpaid</span>
+														</td>
+														<td>Science</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>7</td>
+														<td>Mark Hay</td>
+														<td>Jayesh</td>
+														<td>18/06/2016</td>
+														<td>
+															<span class="label label-sm label-success ">paid</span>
+														</td>
+														<td>Commerce</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+													<tr>
+														<td>8</td>
+														<td>Sue Woodger</td>
+														<td>Sharma</td>
+														<td>17/05/2016</td>
+														<td>
+															<span class="label label-sm label-danger">unpaid</span>
+														</td>
+														<td>Mechanical</td>
+														<td><a href="javascript:void(0)" class="" data-toggle="tooltip"
+																title="Edit"><i class="fa fa-check"></i></a>
+															<a href="javascript:void(0)" class="text-inverse"
+																title="Delete" data-toggle="tooltip"><i
+																	class="fa fa-trash"></i></a></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end new student list -->
+				</div>
+			</div>
+			<!-- end page content -->
 @endsection
