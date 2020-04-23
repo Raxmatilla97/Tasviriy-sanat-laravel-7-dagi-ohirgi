@@ -1,4 +1,4 @@
-@extends('institut.backend.makets.sayt')
+@extends('makets.admin.site.index')
     @section('content')
 
 
@@ -72,7 +72,7 @@
                             
                             width: 150px;
                         ">
-                                <p style="margin-bottom: 0px; margin-top: -10%; width: 180px; " class="heading text-info">Tasdiqlanganlik bo'yicha</p>
+                                <p style="margin-bottom: 0px; margin-top: -10%; width: 180px; " class="heading text-info">Ovozlar bo'yicha</p>
                             </div>
                             <style>
                                 .flex-container {
@@ -94,14 +94,14 @@
                             <div class="flex-container" > 
                             <div style="margin: auto;">
                             
-                                <p class="text-success mt-2 mb-0">Tasdiqlangan</p>
-                                <p class="text-success text-24 t-font-boldest line-height-1 mb-2">{{ $articleStatApproval->count()}} ta</p>
+                                <p class="text-success mt-2 mb-0">Yoqdi</p>
+                                <p class="text-success text-24 t-font-boldest line-height-1 mb-2"> N ta</p>
 
                             </div>
                             
                             <div style="margin: auto; margin-left: 20%;" >
-                                <p class="typo_link text-danger mt-2 mb-0">Tasdiqlanmagan</p>
-                                <p class="text-danger t-font-boldest text-24 line-height-1 mb-2">{{ $articleStatNotApproval->count()}} ta</p>
+                                <p class="typo_link text-danger mt-2 mb-0">Yoqmadi</p>
+                                <p class="text-danger t-font-boldest text-24 line-height-1 mb-2">N ta</p>
 
                             </div>
                         </div>
@@ -180,8 +180,7 @@
                                 Qo'shimcha amaliyotlar
                             </button>
                             <div class="dropdown-menu " x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(697px, 51px, 0px);">
-                            <a class="dropdown-item" href="{{ route('yangiliklar.approw')}}">Tasdiqlanmagan yangiliklar</a>
-                                <a class="dropdown-item" href="{{ route('yangiliklar.yesapprow') }} ">Tasdiqlangan yangiliklar</a>
+                           
                                 <a class="dropdown-item" href="{{ route('yangiliklar.activmas')}}">Aktivmas yangiliklar</a>
                                 <a class="dropdown-item" href="{{ route('yangiliklar.activlar')}}">Aktivlashgan yangiliklar</a>
                                 <div class="dropdown-divider"></div>
@@ -213,7 +212,7 @@
                                                <!-- start tr -->
 
                                             <tr>
-                                                <th scope="row" @if ($item->active == 0 || $item->tasdiq == 0) style="background: #ff0000b8;" @else style="background: #008000a8;" @endif>
+                                                <th scope="row" @if ($item->active == 0) style="background: #ff0000b8;" @else style="background: #008000a8;" @endif>
                                                     <label class="checkbox checkbox-outline-info">
 
                                                         <input type="checkbox" > <!-- checked="" ni ishlatsa barchasi cheklanadi -->
@@ -247,13 +246,13 @@
                                                 </td>
 
                                                 <td>
-                                                    @if ( isset($item->kafedra->name) )  {{$item->kafedra->name}} @else <p class="typo_link text-warning">Kafedra kiritilmagan</p> @endif
+                                                   <p class="typo_link text-warning">Kafedra kiritilmagan</p>
                                                 </td>
 
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <span class="badge badge-pill @if($item->active == 0) badge-outline-danger  @else badge-outline-success @endif  p-2 m-1"> @if($item->active == 0) Activ emas! @else Bu sahifa active! @endif</span>
-                                                    <span class="badge badge-pill @if($item->tasdiq == 0) badge-outline-danger  @else badge-outline-success @endif  p-2 m-1"> @if($item->tasdiq == 0) Tasdiqlanmagan! @else Tasdiqlangan! @endif</span>
+                                                   
 
                                                 </td>
                                                

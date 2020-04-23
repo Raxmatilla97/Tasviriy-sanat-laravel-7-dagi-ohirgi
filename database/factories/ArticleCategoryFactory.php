@@ -9,9 +9,9 @@ $factory->define(ArticleCategory::class, function (Faker $faker) {
     $name =  $faker->sentence($nbWords = 6, $variableNbWords = true);  // Random task title
     $slug = Str::slug($name);
     return [
-        'name' => $name,
+        'title' => $name,
         'slug' => $slug,
-        'active' => $faker->randomElement(['0','1']),
+        
         'img' => $faker->randomElement([
             'storage/photos/4/1.jpg',
             'storage/photos/4/2.jpg',

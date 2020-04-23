@@ -22,8 +22,11 @@ class YangiliklarTable extends Migration
             $table->text('smal_desc')->nullable();
             $table->string('image')->nullale();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('cate_id');
+
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('cate_id')->references('id')->on('article_category');
 
 
         });

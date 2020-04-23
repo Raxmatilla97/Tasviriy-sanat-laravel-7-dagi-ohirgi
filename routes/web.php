@@ -20,12 +20,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@index')->name('site.index');
 
-
+   /* ///////////////////////////////
+        Admin panel routerlari
+    */ //////////////////////////////
 Route::prefix('full-panel')->middleware(['auth'])->group(function () {
    Route::get('/', 'admin\AdminController@index')->name('admin.index');
-   Route::resource('yangiliklar', 'admin\YangiliklarController')->names([
+   
+
+   /* ///////////////////////////////
+        Yangiliklar routerlari
+    */ //////////////////////////////
+   Route::prefix('yangiliklar')->middleware(['auth'])->group(function () {
+      
+   Route::resource('/', 'admin\YangiliklarController')->names([
       'index' => 'yangiliklar'
       ]);
+
+      // * Qo'shimcha ishlarga
+  
+      Route::get('activmaslar', 'admin\YangiliklarController@activmas')->name('yangiliklar.activmas');
+      Route::get('activlar', 'admin\YangiliklarController@active')->name('yangiliklar.activlar');
+
+
+
+
+   });
    Route::get('/admin', 'HomeController@index')->name('admin');
 });
 Auth::routes();

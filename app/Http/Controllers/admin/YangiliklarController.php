@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+Use App\Article;
 
 class YangiliklarController extends Controller
 {
@@ -14,7 +15,26 @@ class YangiliklarController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::latest()->orderBy("created_at")->paginate(10);
+
+        $articleStat = Article::get();
+        //dd($users->getRoleNames());
+        //$user = $request->user();
+       
+
+        $articleStatActive = Article::where('active', '=', '1');
+        $articleStatNotActive = Article::where('active', '=', '0');
+       
+
+
+    return view('admin.crud.yangiliklar-crud.articles-list', compact(       
+        'articles',          
+        'articleStat',
+        'articleStatActive',
+        'articleStatNotActive'
+
+        
+        ))->with('i',(request()->input('page', 1) -1) *5);
     }
 
     /**
@@ -82,4 +102,59 @@ class YangiliklarController extends Controller
     {
         //
     }
+
+    public function activmas()
+    {
+        $articles = Article::latest()->where('active', '=', '0')->orderBy("created_at")->paginate(10);
+
+
+        $articleStat = Article::get();
+        //dd($users->getRoleNames());
+        //$user = $request->user();
+       
+
+        $articleStatActive = Article::where('active', '=', '1');
+        $articleStatNotActive = Article::where('active', '=', '0');
+       
+
+
+    return view('admin.crud.yangiliklar-crud.articles-list', compact(       
+        'articles',          
+        'articleStat',
+        'articleStatActive',
+        'articleStatNotActive'
+
+        
+        ))->with('i',(request()->input('page', 1) -1) *5);
+    }
+
+
+
+    
+    public function active()
+    {
+        $articles = Article::latest()->where('active', '=', '1')->orderBy("created_at")->paginate(10);
+
+
+        $articleStat = Article::get();
+        //dd($users->getRoleNames());
+        //$user = $request->user();
+       
+
+        $articleStatActive = Article::where('active', '=', '1');
+        $articleStatNotActive = Article::where('active', '=', '0');
+       
+
+
+    return view('admin.crud.yangiliklar-crud.articles-list', compact(       
+        'articles',          
+        'articleStat',
+        'articleStatActive',
+        'articleStatNotActive'
+
+        
+        ))->with('i',(request()->input('page', 1) -1) *5);
+    }
+
+
 }

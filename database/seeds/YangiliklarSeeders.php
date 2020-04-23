@@ -25,7 +25,7 @@ class YangiliklarSeeders extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'role_name' => 'Developer',
+            'name' => 'Developer',
             'slug' => 'developer',
            
         ]);
@@ -36,14 +36,14 @@ class YangiliklarSeeders extends Seeder
            
         ]);
         factory(App\ArticleCategory::class, 10)->create();
-        factory(App\Kafedralar::class, 20)->create();
+       // factory(App\Kafedralar::class, 20)->create();
         factory(App\User::class, 30)->create();
         factory(App\Article::class, 30)->create();
         factory(App\Role::class, 10)->create();
         factory(App\Permission::class, 20)->create();
         factory(App\UserRole::class, 10)->create();
-        factory(App\PosterCategory::class, 11)->create();
-        factory(App\Poster::class, 20)->create();
+       // factory(App\PosterCategory::class, 11)->create();
+        //factory(App\Poster::class, 20)->create();
         
 
        
