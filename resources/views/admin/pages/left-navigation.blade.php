@@ -19,7 +19,7 @@
             <li class="nav-item" data-item="yangilik">
             <a class="nav-item-hold" href="{{route('yangiliklar')}}" >
                     <i class="nav-icon i-File-Horizontal-Text"></i>
-                    <span class="nav-text">OTM-AXBOROT</span>
+                    <span class="nav-text">AXBOROT</span>
                 </a>
                 <div class="triangle"></div>
             </li>
@@ -43,7 +43,7 @@
         <li class="nav-item dropdown-sidemenu">
             <a>
                 <i class="nav-icon i-Receipt"></i>
-                <span class="item-name">OTM - Yangiliklari <span
+                <span class="item-name">Kafedra - Yangiliklari <span
                         class=" ml-2 badge badge-pill badge-danger">Yangi</span></span>
                 <i class="dd-arrow i-Arrow-Down"></i>
             </a>
@@ -88,7 +88,7 @@
         <li class="nav-item dropdown-sidemenu">
             <a>
                 <i class="nav-icon i-Receipt"></i>
-                <span class="item-name">OTM - E'lonlari <span
+                <span class="item-name">Kafedra - E'lonlari <span
                         class=" ml-2 badge badge-pill badge-danger">Yangi</span></span>
                 <i class="dd-arrow i-Arrow-Down"></i>
             </a>
