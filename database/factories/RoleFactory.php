@@ -9,7 +9,7 @@ $factory->define(Role::class, function (Faker $faker) {
     $name =  $faker->sentence($nbWords = 2, $variableNbWords = true);  // Random task title
     $slug = Str::slug($name);
     return [
-        'name' => $name,
+        'role_name' => $name,
         'slug' => $slug,
     ];
 });

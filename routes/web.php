@@ -33,7 +33,9 @@ Route::prefix('full-panel')->middleware(['auth'])->group(function () {
    Route::prefix('yangiliklar')->middleware(['auth'])->group(function () {
       
    Route::resource('/', 'admin\YangiliklarController')->names([
-      'index' => 'yangiliklar'
+      'index' => 'yangiliklar',
+      'create' => 'yangiliklar.create',
+      'store' => 'yangiliklar.store'
       ]);
 
       // * Qo'shimcha ishlarga
@@ -42,11 +44,16 @@ Route::prefix('full-panel')->middleware(['auth'])->group(function () {
       Route::get('activlar', 'admin\YangiliklarController@active')->name('yangiliklar.activlar');
 
 
-
+      Route::resource('bolimlar', 'admin\ArticleCategoryController')->names([
+         'index' => 'yangilik-bolim.index',
+         'store' => 'yangilik-bolim.store'
+      ]);
 
    });
    Route::get('/admin', 'HomeController@index')->name('admin');
 });
 Auth::routes();
 
-
+Route::get('/fragment', function(){
+   return view('admin.crud.fragmentlar.file-manager');
+});

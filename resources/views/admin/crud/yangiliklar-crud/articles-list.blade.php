@@ -237,7 +237,7 @@
                                                 
                                                 <td>
                                                 <a href="{{ $item->slug }}" class="typo_link text-primary t-font-boldest">{{ $item->title}}</a><br>
-                                                <span class="typo_link text-info">Bo'limlari: {{ $item->category->name}}</span>
+                                                <a href="{{ $item->category->slug}}"><span class="typo_link text-info">Bo'limlari: {{ $item->category->title}}</span></a> 
                                                 
                                                 </td>
 

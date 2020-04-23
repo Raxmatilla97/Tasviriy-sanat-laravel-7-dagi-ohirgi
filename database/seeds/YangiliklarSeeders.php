@@ -25,7 +25,7 @@ class YangiliklarSeeders extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Developer',
+            'role_name' => 'Developer',
             'slug' => 'developer',
            
         ]);

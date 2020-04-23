@@ -4,7 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-Use App\Article;
+use App\Article;
+use Auth;
+use App\ArticleCategory;
+use Illuminate\Support\Facades\DB;
 
 class YangiliklarController extends Controller
 {
@@ -44,7 +47,20 @@ class YangiliklarController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $category = ArticleCategory::get();
+       
+       
+        $users = DB::table('users')
+        //->join('users_roles', 'users.id', '=', 'users_roles.user_id')
+       ->join('roles', 'users.id', '=', 'roles.id')            
+        ->select('users.*', 'roles.*')
+        ->where('users.id', '=',  $user->id )
+        ->get();
+        //dd($users);  
+
+
+        return view('admin.crud.yangiliklar-crud.articles-create', compact( 'users','category'));
     }
 
     /**
@@ -55,7 +71,69 @@ class YangiliklarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //dd($request);
+         $request->validate([
+            'title' => 'required|unique:yangiliklar,title',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'image' => 'required',
+            'cate_id' => 'required',
+            'desc' => 'required',
+            'slug' => 'required|unique:yangiliklar,slug',
+            'user_id' => 'required',
+           // 'kafedra_id' => 'required',
+            //'tasdiq' => 'required',
+            'active' => 'required',
+            
+
+        ],
+    
+         [
+            'title.required' => 'Yangilik nomini yozishingiz shart.',
+            'slug.required'  => 'Yangilik slug (saytdagi manzilini) yozishingiz shart.',
+            'image.required'  => 'Yangilik asosiy suratini yuklang.',
+            'cate_id.required'  => "Yangilik bo'limini tanlang.",
+            'description.required'  => "Asosiy yangilik contentini yozing.",
+            'title.unique'  => "Bu nomlanishdagi yangilik, saytda mavjud. Iltimos nomlanishi o'zgartiring.",
+            'slug.unique'  => "Bu nomlanishdagi yangilik manzili, saytda mavjud.",
+
+        ]
+    
+    );
+       
+       
+        
+
+            // Suratni yuklash kodi
+            $image = $request->file('image');
+
+            $new_name =  rand() . '.' . $image->getClientOriginalExtension();
+
+            $image->move(public_path('yangiliklar'), $new_name);
+        
+            $new_name = 'yangiliklar/'.$new_name;
+
+            // tugadi
+
+        //dd($new_name);
+      $yangilik = new Article([
+        
+        'title' => $request->get('title'),
+        'slug' => $request->get('slug'),
+        'image' => $new_name ,
+        'desc' => $request->get('desc'),
+        'cate_id' => $request->get('cate_id'),
+        'user_id' => $request->get('user_id'),
+        
+        'active' => $request->get('active')
+
+    ]);
+
+    //dd($yangilik);
+    $yangilik->save();
+      
+         return redirect()->route('yangiliklar')->with('success', "Siz yozgan yangilik bazaga kiritildi.");
+         
+       
     }
 
     /**

@@ -1,5 +1,5 @@
 
-@extends('institut.backend.makets.sayt')
+@extends('makets.admin.site.index')
     @section('content')
 
 
@@ -73,7 +73,7 @@
                             <input type="text" required value="{{ old('slug') }}" name="slug" id="slug-target" class="form-control" placeholder="Bu yerga hechnarsa yozmaysiz avtomatik kiritiladi!" aria-label="Username" aria-describedby="basic-addon1">
                             
                         </div>
-                        <div class="col-lg-12  mb-3">
+                        {{-- <div class="col-lg-12  mb-3">
                             <div class="card card-body border-top-info ul-border__bottom">
                                 <div class="text-center">
                                     <h5 class="heading text-primary">Yangilik kafedra nomidan chiqishini istaysizmi?</h5>
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                        
                         
                         <div class="mb-3 forn-group col-md-4">
@@ -229,13 +229,13 @@
 
                         <div class="col-md-12 form-group mb-2">
                             <label for="picker1">Yangilik bo'limini tanlang.</label>
-                            <div class="ul-form__text form-text">@if ($errors->has('category_id'))
-                                <span class="text-danger">{{ $errors->first('category_id') }}</span>
+                            <div class="ul-form__text form-text">@if ($errors->has('cate_id'))
+                                <span class="text-danger">{{ $errors->first('cate_id') }}</span>
                             @endif</div>
-                            <select required  name="category_id" class="form-control form-control-rounded">
+                            <select required  name="cate_id" class="form-control form-control-rounded">
                                 <option value="">Kerakli bo'limni tanlang!</option>
                                 @foreach ($category as $cate )
-                                <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                <option value="{{$cate->id}}">{{$cate->title}}</option>
                                 @endforeach
                                
                             </select>
@@ -295,18 +295,19 @@
            
 
             <div class="col-lg-11 mb-3 " style=" margin: auto;">
-            <center><script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-                @if ($errors->has('description'))
+           
+           <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+                @if ($errors->has('desc'))
                     
 
                     <div class="alert alert-card alert-danger" role="alert">
-                        <strong class="text-capitalize">Diqqat!</strong> {{ $errors->first('description') }}
+                        <strong class="text-capitalize">Diqqat!</strong> {{ $errors->first('desc') }}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 @endif
-                    <textarea rows="20" name="description" class="form-control my-editor">{!! old('description', '') !!}</textarea></center>
+                    <textarea rows="20" name="desc" class="form-control my-editor">{!! old('desc', '') !!}</textarea></center>
                     <script>
                       var editor_config = {
                         path_absolute : "/filemanager?type=Files",
@@ -339,8 +340,7 @@
                         }
                       };
                       tinymce.init(editor_config);
-                    </script>
-
+                    </script> 
 
                 </div>
         </div>

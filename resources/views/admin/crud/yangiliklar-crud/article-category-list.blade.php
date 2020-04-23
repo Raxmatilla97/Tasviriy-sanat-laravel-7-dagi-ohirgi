@@ -1,4 +1,4 @@
-@extends('institut.backend.makets.sayt')
+@extends('makets.admin.site.index')
     @section('content')
 
 
@@ -12,145 +12,6 @@
         </ul>
     </div>
 
-    {{-- <section class="ul-widget-stat-s1">
-        <div class="row">
-            
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                    <div class="card-body text-center">
-                        <i class="i-Feedburner"></i>
-                        <div class="content" style="    max-width: 150px; margin: auto;">
-                            <div style="
-                            
-                            width: 150px;
-                        ">
-                                <p style="margin-bottom: 0px; " class="heading text-info">Faollik bo'yicha</p>
-                            </div>
-                            <style>
-                                .flex-container {
-                                  display: flex;
-                                  height: 40px;
-                            width: 150px;
-                            margin-right: auto;
-                                }
-                                
-                               .flex-container > div {
-                                  /* background-color: #f1f1f1; */
-                                  /* margin: 10px;
-                                  padding: 20px; */
-                                  text-align: center;
-                                  /* font-size: 30px; */
-                                } 
-                                </style>
-
-                            <div class="flex-container" > 
-                            <div style="margin: auto;">
-                            
-                                <p class="text-success mt-2 mb-0">Active</p>
-                                <p class="text-success text-24 t-font-boldest line-height-1 mb-2">{{ $articleStatActive->count()}} ta</p>
-
-                            </div>
-                            
-                            <div style="margin: auto; margin-left: 20%;" >
-                                <p class="typo_link text-danger mt-2 mb-0">No Activlic</p>
-                                <p class="text-danger text-24 t-font-boldest line-height-1 mb-2">{{ $articleStatNotActive->count()}} ta</p>
-
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                    <div class="card-body text-center">
-                        <i class="i-Like-2"></i>
-                        <div class="content" style="    max-width: 150px; margin: auto;">
-                            <div style="
-                            
-                            width: 150px;
-                        ">
-                                <p style="margin-bottom: 0px; margin-top: -10%; width: 180px; " class="heading text-info">Tasdiqlanganlik bo'yicha</p>
-                            </div>
-                            <style>
-                                .flex-container {
-                                  display: flex;
-                                  height: 40px;
-                            width: 150px;
-                            margin-right: auto;
-                                }
-                                
-                               .flex-container > div {
-                                  /* background-color: #f1f1f1; */
-                                  /* margin: 10px;
-                                  padding: 20px; */
-                                  text-align: center;
-                                  /* font-size: 30px; */
-                                } 
-                                </style>
-
-                            <div class="flex-container" > 
-                            <div style="margin: auto;">
-                            
-                                <p class="text-success mt-2 mb-0">Tasdiqlangan</p>
-                                <p class="text-success text-24 t-font-boldest line-height-1 mb-2">{{ $articleStatActive->count()}} ta</p>
-
-                            </div>
-                            
-                            <div style="margin: auto; margin-left: 20%;" >
-                                <p class="typo_link text-danger mt-2 mb-0">Tasdiqlanmagan</p>
-                                <p class="text-danger t-font-boldest text-24 line-height-1 mb-2">{{ $articleStatNotActive->count()}} ta</p>
-
-                            </div>
-                        </div>
-                        
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-                    <div class="card-body text-center">
-                        <i class="i-File-Horizontal-Text"></i>
-                        <div class="content" style="     margin-bottom: -5%;
-                        max-width: 150px; ">
-                            <div style="
-                            
-                            width: 150px;
-                        ">
-                                <p style="margin-bottom: 0px;  width: 180px; " class="heading text-info">Barcha yangiliklar</p>
-                            </div>
-                            <style>
-                                .flex-container {
-                                  display: flex;
-                                  height: 40px;
-                            width: 150px;
-                            margin-right: auto;
-                                }
-                                
-                               .flex-container > div {
-                                  /* background-color: #f1f1f1; */
-                                  /* margin: 10px;
-                                  padding: 20px; */
-                                  text-align: center;
-                                  /* font-size: 30px; */
-                                } 
-                                </style>
-
-                            
-                            <div style="margin: auto;">
-                            
-                                <p class="text-primary mt-2 mb-0">Barchasi</p>
-                                <p class="typo_link text-primary t-font-boldest text-24 line-height-1 mb-2">{{ $articleStat->count()}} ta</p>
-
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 
     <div class="separator-breadcrumb border-top"></div>
 
@@ -186,7 +47,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6 form-group mb-3">
                                                                 <label for="slug-source">Yangilik bo'limi nomi</label>
-                                                                <input type="text" required value="{{ old('name') }}" name="name" id="slug-source" class="form-control form-control-rounded" id="slug-source" placeholder="Bo'limni nomini kiriting">
+                                                                <input type="text" required value="{{ old('title') }}" name="title" id="slug-source" class="form-control form-control-rounded" id="slug-source" placeholder="Bo'limni nomini kiriting">
                                                             </div>
                         
                                                             <div class="col-md-6 form-group mb-3">
@@ -195,18 +56,18 @@
                                                             </div>
                         
                         
-                                                            <div class="col-md-6 form-group mb-3">
+                                                            {{-- <div class="col-md-6 form-group mb-3">
                                                                 <label for="picker1">Bo'lim activlashtirilsinmi?</label>
                                                                 <select  name="active" class="form-control form-control-rounded">
                                                                     <option value="0" >Yo'q activlashmasin!</option>
                                                                     <option value="1">Ha activlashsin!</option>
                                                                    
                                                                 </select>
-                                                            </div>
+                                                            </div> --}}
                         
                                                             
                                     
-                                                            <div class="col-md-6 form-group mb-3">
+                                                            <div class="col-md-12 form-group mb-3">
                                                                 <label for="inputEmail4" class="ul-form__label">Surat yuklashingiz mumkin:</label>
                                                                 <div class="ul-form__text form-text">@if ($errors->has('img'))
                                                                     <span class="text-danger">{{ $errors->first('img') }}</span>
@@ -296,7 +157,7 @@
                                                <!-- start tr -->
 
                                             <tr>
-                                                <th scope="row" @if ($item->active == 0) style="background: #ff0000b8;" @else style="background: #008000a8;" @endif>
+                                                <th scope="row"  style="background: #008000a8;" >
                                                     <label class="checkbox checkbox-outline-info">
 
                                                         <input type="checkbox" > <!-- checked="" ni ishlatsa barchasi cheklanadi -->
@@ -320,7 +181,7 @@
                                                 </td>
                                                 
                                                 <td>
-                                                <a href="{{ $item->slug }}" class="typo_link text-primary t-font-boldest">{{ $item->name}}</a>
+                                                <a href="{{ $item->slug }}" class="typo_link text-primary t-font-boldest">{{ $item->title}}</a>
                                                
                                                 
                                                 </td>

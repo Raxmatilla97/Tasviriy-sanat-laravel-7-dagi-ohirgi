@@ -58,13 +58,13 @@
     
                 <li class="nav-item ">
                     <a class=""
-                href="">
+                href="{{ route('yangiliklar.create')}}">
                         <i class="nav-icon i-Clock-3"></i>
                 <span class="item-name">{{ __("Yangilik qo'shish")}}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href=""
+                    <a href="{{ route('yangilik-bolim.index')}}"
                         class="">
                         <i class="nav-icon i-Clock-4"></i>
                         <span class="item-name">{{ __("Yangilik bo'limlari")}}</span>
