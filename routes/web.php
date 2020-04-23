@@ -21,10 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'IndexController@index')->name('site.index');
 
 
-Route::prefix('full-panel')->middleware(['role:developer'])->group(function () {
+Route::prefix('full-panel')->middleware(['auth'])->group(function () {
    Route::get('/', 'admin\AdminController@index')->name('admin.index');
-   Route::resource('yangiliklar', 'admin\YangiliklarController');
+   Route::resource('yangiliklar', 'admin\YangiliklarController')->names([
+      'index' => 'yangiliklar'
+      ]);
+   Route::get('/admin', 'HomeController@index')->name('admin');
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

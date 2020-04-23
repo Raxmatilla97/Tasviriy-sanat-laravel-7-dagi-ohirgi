@@ -1,18 +1,18 @@
 
-@extends('makets.admin.admin-maket')
+@extends('makets.admin.app')
 
 
 {{-- Admin panel eng yuqori qismdagi menyu fragmenti --}}
-@section('top-header')
+@section('header-top-menyu')
      
-     @include('admin.pages.top-header')
+     @include('admin.pages.header-top-menyu')
 
 @endsection
 
 {{-- Admin panel yon traf menyulari --}}
-@section('sidebar-menyu')
+@section('left-navigation')
      
-     @include('admin.pages.sidebar-menyu')
+     @include('admin.pages.left-navigation')
 
 @endsection
 
@@ -24,8 +24,24 @@
 @endsection 
 
 {{-- Admin panel eng pastki footer qismi --}}
-@section('chart-sidebar')
+@section('footer')
     
-     @include('admin.pages.chart-sidebar')
+     @include('admin.pages.footer')
+
+@endsection 
+
+
+{{-- Admin panel eng yuqori qidiruv formasi --}}
+
+@section('ui-search')
+    
+     @include('admin.pages.ui-search')
+
+@endsection 
+
+{{-- Admin panel o'ng taraf holatni ozgartirish va Dark ko'rinishni berish funksiyasi --}}
+@section('customizer')
+    
+     @include('admin.pages.customizer')
 
 @endsection 

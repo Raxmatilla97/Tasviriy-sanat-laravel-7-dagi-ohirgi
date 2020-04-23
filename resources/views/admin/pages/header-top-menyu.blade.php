@@ -1,4 +1,4 @@
-@extends('artuz.layouts.makets.admin.admin-maket')
+@extends('makets.admin.app')
     @section('header-top-menyu')
         
 
@@ -172,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-        
+         
                 </div>
                 <!-- header top menu end -->
                 @endsection

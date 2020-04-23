@@ -1,4 +1,4 @@
-@extends('artuz.layouts.makets.admin.admin-maket')
+@extends('makets.admin.app')
     @section('customizer')
         
 
