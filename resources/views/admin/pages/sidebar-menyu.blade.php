@@ -12,6 +12,8 @@
 									<span></span>
 								</div>
 							</li>
+
+							
 							<li class="sidebar-user-panel">
 								<div class="user-panel">
 									<div class="pull-left image">
@@ -25,28 +27,36 @@
 									</div>
 								</div>
 							</li>
+
 							<li class="nav-item start active open">
+								<a href="{{ route('admin.index')}}" class="nav-link nav-toggle"> <i class="material-icons">event</i>
+									<span class="title">Admin panel</span>
+								</a>
+							</li>
+
+
+							<li class="nav-item ">
 								<a href="index.html#" class="nav-link nav-toggle">
 									<i class="material-icons">dashboard</i>
-									<span class="title">Dashboard</span>
+									<span class="title">Yangiliklar</span>
 									<span class="selected"></span>
 									<span class="arrow open"></span>
 								</a>
 								<ul class="sub-menu">
-									<li class="nav-item active">
+									<li class="nav-item ">
 										<a href="index.html" class="nav-link ">
-											<span class="title">Dashboard 1</span>
+											<span class="title">Yangiliklar ro'yxati</span>
 											<span class="selected"></span>
 										</a>
 									</li>
 									<li class="nav-item ">
 										<a href="dashboard2.html" class="nav-link ">
-											<span class="title">Dashboard 2</span>
+											<span class="title">Yangilik qo'shish</span>
 										</a>
 									</li>
 									<li class="nav-item">
 										<a href="dashboard3.html" class="nav-link ">
-											<span class="title">Dashboard 3</span>
+											<span class="title">Bo'limlar</span>
 										</a>
 									</li>
 								</ul>

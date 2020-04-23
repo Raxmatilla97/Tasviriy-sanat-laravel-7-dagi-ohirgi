@@ -15,7 +15,15 @@ class XamkorOtmlarTable extends Migration
     {
         Schema::create('xamkorlar', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->string('slug');
+            $table->string('image')->nullable();
+            $table->boolean('active')->default('0');
+            $table->text('text');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

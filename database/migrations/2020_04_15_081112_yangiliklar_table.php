@@ -15,7 +15,17 @@ class YangiliklarTable extends Migration
     {
         Schema::create('yangiliklar', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug');
+            $table->boolean('active')->default('0');
+            $table->text('desc');
+            $table->text('smal_desc')->nullable();
+            $table->string('image')->nullale();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+
+
         });
     }
 

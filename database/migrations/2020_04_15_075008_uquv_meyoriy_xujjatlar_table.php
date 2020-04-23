@@ -15,7 +15,16 @@ class UquvMeyoriyXujjatlarTable extends Migration
     {
         Schema::create('ukuv_meyoriy_xuj', function (Blueprint $table) {
             $table->id();
+
+            $table->string('title', 255);
+            $table->string('slug', 255);
+            $table->string('image')->nullable();
+                        
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+         
         });
     }
 

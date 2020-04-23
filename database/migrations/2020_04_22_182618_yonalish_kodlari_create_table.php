@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class GallereyaTable extends Migration
+class YonalishKodlariCreateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class GallereyaTable extends Migration
      */
     public function up()
     {
-        Schema::create('gallereya', function (Blueprint $table) {
+        Schema::create('yonalish_kodlari', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class GallereyaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallereya');
+        Schema::dropIfExists('yonalish_kodlari');
     }
 }

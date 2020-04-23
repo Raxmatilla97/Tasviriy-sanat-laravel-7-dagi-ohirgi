@@ -23,7 +23,7 @@ Route::get('/', 'IndexController@index')->name('site.index');
 
 Route::prefix('full-panel')->middleware(['role:developer'])->group(function () {
    Route::get('/', 'admin\AdminController@index')->name('admin.index');
-
+   Route::resource('yangiliklar', 'admin\YangiliklarController');
 });
 Auth::routes();
 
