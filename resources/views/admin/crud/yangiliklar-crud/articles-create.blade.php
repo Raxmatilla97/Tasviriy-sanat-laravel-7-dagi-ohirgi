@@ -162,10 +162,10 @@
                         </div>
                     </div>
 
-                    {{-- <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script> --}}
+                    {{-- <script src="{{ asset('js/ckeditor/ckeditor.js')}}') }}"></script> --}}
                     
                     {{-- <textarea id="my-editor" name="content" class="form-control">{!! old('content', 'test editor content') !!}</textarea>
-                  <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+                  <script src="{{ asset('js/ckeditor/ckeditor.js')}}') }}"></script>
                     <script>
                       var options = {
                         filebrowserImageBrowseUrl: '/filemanager?type=Images',
@@ -174,8 +174,8 @@
                         filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
                       };
                     </script>
-                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-                <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js')}}"></script>
+                <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js')}}"></script>
 
                 <script>
                     CKEDITOR.replace('my-editor', options);
@@ -364,6 +364,46 @@
 </form>
 </div>
 
+@push('style')
+<link id="gull-theme" rel="stylesheet" href="{{ asset('admin/assets/styles/css/themes/lite-purple.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('admin/assets/styles/vendor/perfect-scrollbar.css')}}">
+<link rel="stylesheet" href="{{ asset('admin/assets/styles/vendor/pickadate/classic.css')}}">
+<link rel="stylesheet" href="{{ asset('admin/assets/styles/vendor/pickadate/classic.date.css')}}">       
+      
+       
+    @endpush
 
+@push('script')
+
+ 
+<script src="{{ asset('admin/assets/js/common-bundle-script.js') }}"></script>
+{{-- <script src="{{ asset('admin/assets/js/vendor/echarts.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/es5/echart.options.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/es5/dashboard.v1.script.js') }}"></script> --}}
+<script src="{{ asset('admin/assets/js/script.js') }}"></script>
+<script src="{{ asset('admin/assets/js/sidebar.large.script.js') }}"></script>
+<script src="{{ asset('admin/assets/js/customizer.script.js') }}"></script>
+
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+
+<script src="{{ asset('js/slugify.js') }}"></script>
+<script>
+$(document).ready(function(){
+  $('#slug-target,#slug-target-span').slugify('#slug-source');
+});
+</script>
+@endpush
 
 @endsection

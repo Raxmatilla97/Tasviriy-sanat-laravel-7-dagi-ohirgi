@@ -21,6 +21,10 @@ class TeachersTable extends Migration
             $table->string('tugulgan_yil');
             $table->string('tugulgan_joy');
             $table->string('yashash_manzil');
+            $table->string('ishlamoqda', 50);
+            $table->unsignedBigInteger('fanlar_id');
+
+
             
             $table->string('pass_ser', 5);
             $table->string('pass_nom', 10);
@@ -37,7 +41,7 @@ class TeachersTable extends Migration
 
             $table->timestamps();   
 
-
+            $table->foreign('fanlar_id')->references('id')->on('fanlar');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('mavqe_id')->references('id')->on('mavqeylar');
 

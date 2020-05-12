@@ -50,6 +50,32 @@ Route::prefix('full-panel')->middleware(['auth'])->group(function () {
       ]);
 
    });
+
+      /* ///////////////////////////////
+        Yangiliklar routerlari
+      */ //////////////////////////////
+   Route::prefix('oqituvchilar')->middleware(['auth'])->group(function () {
+      
+      Route::resource('/', 'admin\TichersController')->names([
+         'index' => 'oqituvchilar.index',
+         'create' => 'oqituvchilar.create',
+         'store' => 'oqituvchilar.store'
+         ]);
+   
+         // * Qo'shimcha ishlarga
+     
+         // Route::get('activmaslar', 'admin\YangiliklarController@activmas')->name('yangiliklar.activmas');
+         // Route::get('activlar', 'admin\YangiliklarController@active')->name('yangiliklar.activlar');
+   
+   
+         // Route::resource('bolimlar', 'admin\ArticleCategoryController')->names([
+         //    'index' => 'yangilik-bolim.index',
+         //    'store' => 'yangilik-bolim.store'
+         // ]);
+   
+      });
+
+
    Route::get('/admin', 'HomeController@index')->name('admin');
 });
 Auth::routes();

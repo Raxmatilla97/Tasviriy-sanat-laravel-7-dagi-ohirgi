@@ -596,7 +596,33 @@
 
 
 
+@push('style')
+           
+    <link id="gull-theme" rel="stylesheet" href="{{asset('admin/assets/styles/css/themes/lite-purple.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/styles/vendor/perfect-scrollbar.css')}}">
+@endpush
 
 
+@push('script')
+    
+
+        
+<script src="{{ asset('admin/assets/js/common-bundle-script.js')}}"></script>
+        
+        
+
+        
+        
+<script src="{{ asset('admin/assets/js/script.js')}}"></script>
+
+
+        <script src="{{ asset('admin/assets/js/sidebar.large.script.js')}}"></script>
+
+
+
+
+<script src="{{ asset('admin/assets/js/customizer.script.js')}}"></script>
+
+@endpush
 
         @endsection

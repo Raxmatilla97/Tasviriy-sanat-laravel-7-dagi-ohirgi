@@ -23,13 +23,41 @@
                 </a>
                 <div class="triangle"></div>
             </li>
-            <li class="nav-item">
+            
+         
+
+                <li class="nav-item " data-item="ukituvchilar">
+                    <a class="nav-item-hold" href="lists.html#">
+                        <i class="nav-icon i-Library"></i>
+                        <span class="nav-text">O'qituvchilar</span>
+                    </a>
+                    <div class="triangle"></div>
+                </li>
+
+                <li class="nav-item " data-item="talabalar">
+                    <a class="nav-item-hold" href="lists.html#">
+                        <i class="nav-icon i-Business-ManWoman"></i>
+                        <span class="nav-text">Talabalar</span>
+                    </a>
+                    <div class="triangle"></div>
+                </li>
+
+                <li class="nav-item " data-item="gallereya">
+                    <a class="nav-item-hold" href="lists.html#">
+                        <i class="nav-icon i-Video-Photographer"></i>
+                        <span class="nav-text">Gallereya</span>
+                    </a>
+                    <div class="triangle"></div>
+                </li>
+
+            {{-- <li class="nav-item">
                 <a class="nav-item-hold" href="">
                         <i class="nav-icon i-Administrator"></i>
                         <span class="nav-text">Talabalar</span>
                     </a>
                     <div class="triangle"></div>
-                </li>
+                </li> --}}
+
         </ul>
     </div>
 
@@ -80,7 +108,7 @@
                 <li></li>
             </ul>
         </li>
-
+    </ul>
          {{-- Elonlar --}}
          <ul class="childNav" data-parent="yangilik">
             <li class="nav-item">
@@ -126,11 +154,22 @@
             </ul>
         </li>
         {{-- tugadi --}}
-        {{-- <ul class="childNav" data-parent="yangilik">
+
+        
+
+            
+           
+            
+        </ul>
+    
+
+{{-- 
+        
+         <ul class="childNav" data-parent="ukituvchilar">
 
             <li class="nav-item ">
                 <a class=""
-            href="{{ route('yangiliklar')}}">
+            href="">
                     <i class="nav-icon i-Letter-Open"></i>
             <span class="item-name">{{ __("Yangiliklar ro'yxati")}}</span>
                 </a>
@@ -138,13 +177,13 @@
 
             <li class="nav-item ">
                 <a class=""
-            href="{{ route('yangilik.qoshish')}}">
+            href="">
                     <i class="nav-icon i-Clock-3"></i>
             <span class="item-name">{{ __("Yangilik qo'shish")}}</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('yangilik-bolim.index')}}"
+                <a href=""
                     class="">
                     <i class="nav-icon i-Clock-4"></i>
                     <span class="item-name">{{ __("Yangilik bo'limlari")}}</span>
@@ -158,14 +197,73 @@
                 </a>
             </li>
 
-        </ul> --}}
+        </ul>  --}}
 
 
 
 
+        <ul class="childNav" data-parent="ukituvchilar" style="display: block;">
+
+            <li class="nav-item">
+            <a class="" href="{{ route('oqituvchilar.index')}}">
+                    <i class="nav-icon i-Arrow-Down-in-Circle"></i>
+                    <span class="item-name">O'qituvchilar ro'yxati</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="" href="#">
+                    <i class="nav-icon i-Arrow-Down-in-Circle"></i>
+                    <span class="item-name">Kuratorlar</span>
+                </a>
+            </li>
+    
+        </ul> 
+
+        <ul class="childNav" data-parent="talabalar" style="display: block;">
+
+            <li class="nav-item">
+                <a class="" href="#">
+                    <i class="nav-icon i-Arrow-Down-in-Circle"></i>
+                    <span class="item-name">Guruhlar</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="" href="#">
+                    <i class="nav-icon i-Arrow-Down-in-Circle"></i>
+                    <span class="item-name">Umumiy talabalar ro'yxati</span>
+                </a>
+            </li>
+    
+        </ul> 
+
+        <ul class="childNav " data-parent="gallereya" style="display: block;">
+
+            <li class="nav-item ">
+                <a class="" href="#">
+                    <i class="nav-icon i-Arrow-Down-in-Circle"></i>
+                    <span class="item-name">Gallereya suratlari</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="" href="#">
+                    <i class="nav-icon i-Arrow-Down-in-Circle"></i>
+                    <span class="item-name">Yangi qo'shish</span>
+                </a>
+            </li>
+    
+        </ul> 
 
 
     </div>
+
+    
+    
+
+
+    
     <div class="sidebar-overlay"></div>
 </div>
 
